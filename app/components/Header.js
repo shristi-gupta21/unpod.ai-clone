@@ -7,15 +7,17 @@ const HeaderUI = styled.header`
   padding: 0 3rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 const Image = styled.img`
   height: 2rem;
 `;
 
-export const Header = () => {
+export const Header = ({ children }) => {
   return (
     <HeaderUI>
       <Image src="/images/unpod-logo.svg" />
+      {children}
     </HeaderUI>
   );
 };
