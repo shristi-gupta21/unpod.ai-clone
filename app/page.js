@@ -1,5 +1,5 @@
 "use client";
-import { Header } from "./components/Header";
+import { HeaderComp } from "./components/HeaderComp";
 import StyledComponentsRegistry from "./lib/registry";
 import { Button } from "antd";
 import { styled } from "styled-components";
@@ -9,28 +9,32 @@ const Items = styled.div`
   column-gap: 0.5rem;
 `;
 
-export default function Home() {
+const MyButton = styled(Button)`
+  & {
+    background: ${(props) => props.fillColor};
+    color: white;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+`;
+
+function Home() {
   return (
     <StyledComponentsRegistry>
-      <Header>
+      <HeaderComp>
         <Items>
           <img src="/images/github.svg" />
-          <Button
-            type="primary"
-            size="large"
-            style={{ backgroundColor: "#796cff" }}
-          >
+          <MyButton type="button" size="large" fillColor={"#796cff"}>
             Sign In
-          </Button>
-          <Button
-            type="primary"
-            size="large"
-            style={{ backgroundColor: "#796cff" }}
-          >
+          </MyButton>
+          <MyButton type="button" size="large" fillColor={"#796cff"}>
             Sign Up
-          </Button>
+          </MyButton>
         </Items>
-      </Header>
+      </HeaderComp>
     </StyledComponentsRegistry>
   );
 }
+export default Home;
