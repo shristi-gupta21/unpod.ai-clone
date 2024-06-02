@@ -10,6 +10,7 @@ const HeaderUI = styled(Header)`
   align-items: center;
   justify-content: space-between;
   background-color: transparent;
+  margin: 0 114px;
 `;
 const Image = styled.img`
   height: 2rem;
