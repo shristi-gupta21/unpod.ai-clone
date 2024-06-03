@@ -1,31 +1,24 @@
-import { useState } from "react";
-import dynamic from "next/dynamic";
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
-import "react-quill/dist/quill.snow.css";
+"use client";
+import { Input } from "antd";
 import { styled } from "styled-components";
+import GPTDropDown from "./GPTOptions";
+import { Form } from "antd";
 
 function TextArea() {
-  const modules = {
-    toolbar: false,
-  };
-  const [value, setValue] = useState("");
+  const FormDiv = styled(Form)`
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+  `;
 
-  const Area = styled(ReactQuill)`
-    &&& {
-      background: white;
-    }
-    &&&::placeholder {
-      font-style: oblique;
-    }
+  const FormInput = styled(Input)`
+    border: none;
   `;
   return (
-    <Area
-      value={value}
-      theme="snow"
-      onChange={setValue}
-      modules={modules}
-      placeholder="Ask me to do anything..."
-    />
+    <FormDiv>
+      <GPTDropDown />
+      <FormInput placeholder="Ask me to do anything..." />
+    </FormDiv>
   );
 }
 
